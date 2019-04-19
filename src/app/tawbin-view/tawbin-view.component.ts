@@ -1,7 +1,7 @@
 import { RandomRecipeService } from './../services/random-recipe.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RandomRecipe } from '../objects/randomrecipe';
+import { RandomRecipe } from '../objects/randomRecipe';
 import { of } from 'rxjs';
 import { LogInService } from '../services/login.service';
 

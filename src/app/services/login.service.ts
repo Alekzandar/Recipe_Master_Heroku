@@ -1,4 +1,4 @@
-import { LoggedUser } from '../objects/LoggedUser';
+import { LoggedUser } from '../objects/loggedUser';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
