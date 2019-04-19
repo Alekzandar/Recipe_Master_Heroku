@@ -1,0 +1,131 @@
+<!-- <ul>
+  <li>Your Ingredients: {{ names|lowercase }} </li>
+</ul> -->
+<br>
+
+<h3 class="display-4 text-center"> Discover Recipes by Ingredients</h3>
+
+<div *ngIf="recipesList?.length == 0">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
+          </div>
+          <input class="form-control" id="search" type="text" [(ngModel)]="names" aria-label="Default"
+            aria-describedby="inputGroup-sizing-default" placeholder="What's in the Pantry?" data-toggle="tooltip"
+            data-placement="top" title="Comma-separated Ingredients!">
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <button class="btn btn-outline-success" (click)="nameLoad()">Find Recipes</button>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="badLogIn==true">
+      <strong>Warning! Invalid Format/Ingredients.
+        Please use Comma-Separated Ingredients.
+      </strong>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<!-- RECIPE CARDS -->
+<div class="recipes" *ngFor="let recipe of recipesList; let i = index" style="display: inline-block">
+  <div class="row">
+    <div *ngIf="i%2==0">
+      <div class="col-6">
+        <div class="card bg-info text-white" style="width: 35rem; margin: 1.5rem">
+          <div class="card-body">
+            <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">
+              <h3> {{recipe.title}}</h3>
+            </mat-checkbox>
+            <img class="card-img-top" [src]="recipe.image" width="20rem" />
+            <hr>
+            <h5 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More
+              Ingredients:
+            </h5>
+            <ul class="list-group list-group-flush" *ngFor="let missed of recipe.missedIngredients">
+              <li class="list-group-item text-info shadow">{{objectKeys(missed)}}</li>
+            </ul>
+            <br>
+            <button type="button" class="btn btn-outline-warning text-center" (click)= "getDetails(recipe)">See More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="i%2==1">
+      <div class="col-6">
+        <div class="card bg-info text-white" style="width: 35rem; word-wrap:break-word; margin: 1rem">
+          <div class="card-body">
+            <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">
+              <h3 > {{recipe.title}}</h3>
+            </mat-checkbox>
+            <img class="card-img-top" [src]="recipe.image" width="20rem" />
+            <hr>
+            <h5 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More
+              Ingredients:
+            </h5>
+            <ul class="list-group list-group-flush" *ngFor="let missed of recipe.missedIngredients">
+              <li class="list-group-item text-info shadow">{{objectKeys(missed)}}</li>
+            </ul>
+            <br>
+            <button type="button" class="btn btn-outline-warning text-center" (click)= "getDetails(recipe)">See More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="recipesList?.length > 0">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
+          </div>
+          <input class="form-control" id="search" type="text" [(ngModel)]="names" aria-label="Default"
+            aria-describedby="inputGroup-sizing-default" placeholder="Try Something New">
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <button class="btn btn-outline-info" (click)="nameLoad()">Search Again</button>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="badLogIn==true">
+      <strong>Warning! Invalid Format/Ingredients.
+        Please use Comma-Separated Ingredients.
+      </strong>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="showSubmit() == false">
+    <button class="btn btn-warning btn-lg btn-block" routerLink="/main">Log-In to Save</button>
+  </div>
+  <div *ngIf="showSubmit()">
+    <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
+  </div>
+
+</div>
+
+<script>
+  $(document).tooltip({
+    selector: "[title]",
+    placement: "top",
+    trigger: "focus",
+    animation: true
+  });
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
+</script>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,49 @@
+
+<div class="container"> 
+<div class="view overlay" data-jarallax='{"speed": 0.2}' style="background-image: url(https://cdn.hellofresh.com/us/cms/lentil/delicious/HF160909_ExtraShot_Global_Homepage_White_04_card_1023x650.jpg);
+width: 100%; height: 600px;">
+  <div class="full-bg-img mask rgba-black-light">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3 w-100">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h1 class="h1 h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s" ><span style= "color:white; background-color:#bcbc7a; opacity: 0.9; border-radius: .5em;">Recipe Master</span></h1>
+            
+      
+              <div id="rcorners" data-wow-delay="0.4s" style= "outline-style:initial; border:1px solid green; border-radius: 2em; background: white;" >
+                <p style= "color: #4CAF50"> Ever find yourself hungry and wondering what to eat...!!<br>
+                  <em> Recipe Master is here to help you enjoy your meal.</em><br>
+              Recipe Master allows the user to customize their list of current ingredients and find new or favorite recipes to make. 
+              Sign up and start cooking today!</div>
+              <p class="text-xl-left"></p>
+              <p class="text-center">
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title"></h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <app-user-register></app-user-register>
+                </div>
+              </ng-template>
+              <button class="btn btn-outline-primary mb-2 mr-2" style="background-color: OliveDrab; color:white;" (click)="openVerticallyCentered(content)">Registration</button>
+              <ng-template #contenta let-modal>
+
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                  <app-maressa-view></app-maressa-view>
+                </div>
+              </ng-template>
+              <button *ngIf = "!showLogOut()" class="btn btn-outline-primary mb-2 mr-2" style="background-color: OliveDrab; color:white;" (click)="openVerticallyCentereda(contenta)">Login</button>        
+            </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

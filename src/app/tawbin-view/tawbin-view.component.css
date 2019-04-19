@@ -1,0 +1,17 @@
+button{
+    vertical-align:middle;
+}
+
+button.btn-default{
+    background-color: slateblue;
+    color:white;
+}
+button.btn-default:hover{
+    background-color: green;
+    color:white;
+}
+
+h2{
+    margin:auto;
+    vertical-align:middle;
+}
