@@ -1,6 +1,6 @@
 import { LogInService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { LoggedUser } from '../objects/loggedUser';
+import { LoggedUser } from '../objects/loggeduser';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
